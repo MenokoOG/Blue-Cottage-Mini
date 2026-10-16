@@ -1,20 +1,24 @@
 @import "tailwindcss";
 
-/* PULP: amazing frontiers.
-   Cream stock, brown ink, gold glow. Georgia for anything read,
-   Courier for anything counted. */
+/* BLUE COTTAGE.
+   Cottage Blue (Valspar 209D, #83a8ca) is the accent; a deep navy supplies the
+   ink and a warm cottage white the paper. Cottage Blue on paper is only 2.2:1,
+   so it is used as a fill or border with navy text on top, never as text on
+   paper. Every text pairing in use clears WCAG AA (checked in tools/ notes). */
 @theme {
-  --color-ink: #201810;
-  --color-ink-deep: #150f0a;
-  --color-ink-mid: #2b1f13;
-  --color-cream: #e8dcc8;
-  --color-cream-lift: #f3e9d7;
-  --color-cream-shade: #ece0ca;
-  --color-gold: #ffd98a;
-  --color-gold-lift: #ffe6a8;
-  --color-muted: #8a795c;
-  --color-muted-deep: #4a3c2c;
-  --color-on-ink: #cdbb9c;
+  --color-ink: #12263a;
+  --color-ink-deep: #0b1a29;
+  --color-ink-mid: #1b3550;
+  --color-paper: #f3f1ea;
+  --color-paper-lift: #fbfaf6;
+  --color-paper-shade: #e9e7df;
+  --color-cottage: #83a8ca;
+  --color-cottage-lift: #a6c2dc;
+  --color-cottage-deep: #3f6b94;
+  --color-ribbon: #b03a34;
+  --color-muted: #55677a;
+  --color-muted-deep: #33465a;
+  --color-on-ink: #c4d3e2;
 
   --font-display: Georgia, "Times New Roman", serif;
   --font-body: Georgia, "Times New Roman", serif;
@@ -34,168 +38,177 @@ html {
 }
 
 body {
-  @apply bg-cream font-body text-ink antialiased;
+  @apply bg-paper font-body text-ink antialiased;
 }
 
-/* visible focus for keyboard users (WCAG), gold, never the browser blue */
+/* visible focus for keyboard users (WCAG), cottage, never the browser blue */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
 summary:focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-cottage);
   outline-offset: 2px;
 }
 
 ::selection {
-  background: var(--color-gold);
+  background: var(--color-cottage);
   color: var(--color-ink);
 }
 
 /* Component classes live in Tailwind's components layer so that per-call-site
-   utilities (px-4, border-gold, tracking-[...]) still win over them. */
+   utilities (px-4, border-cottage, tracking-[...]) still win over them. */
 @layer components {
   /* --- type ------------------------------------------------------------- */
 
-  .pulp-h1 {
+  .bc-h1 {
     @apply font-display text-[2.5rem] leading-[1.05] font-bold;
   }
 
-  .pulp-h2 {
+  .bc-h2 {
     @apply font-display text-[2rem] leading-tight font-bold;
   }
 
   /* small caps meta line, counts, ranks, labels */
-  .pulp-meta {
+  .bc-meta {
     @apply font-mono text-[11px] uppercase tracking-[0.18em] text-muted;
   }
 
-  .pulp-label {
+  .bc-label {
     @apply font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-muted;
   }
 
   /* a label with a rule running out to the right */
-  .pulp-rule {
+  .bc-rule {
     @apply mb-4 flex items-center gap-3;
   }
 
-  .pulp-rule::after {
+  .bc-rule::after {
     content: "";
     @apply h-px flex-1 bg-ink/20;
   }
 
   /* --- surfaces --------------------------------------------------------- */
 
-  .pulp-card {
-    @apply rounded-md border border-muted/55 bg-gradient-to-b from-cream-lift to-cream-shade p-4;
+  .bc-card {
+    @apply rounded-md border border-muted/55 bg-gradient-to-b from-paper-lift to-paper-shade p-4;
   }
 
-  .pulp-panel {
-    @apply rounded-lg border border-muted/55 bg-cream-lift p-5;
+  .bc-panel {
+    @apply rounded-lg border border-muted/55 bg-paper-lift p-5;
   }
 
-  .pulp-ghost {
+  .bc-ghost {
     @apply rounded-lg border border-dashed border-muted/70 p-5;
   }
 
-  /* a dark pulp-cover block: gradient ground, gold bleed in one corner */
-  .pulp-cover {
-    @apply relative overflow-hidden bg-ink text-cream;
+  /* a dark bc-cover block: gradient ground, cottage bleed in one corner */
+  .bc-cover {
+    @apply relative overflow-hidden bg-ink text-paper;
     background-image: linear-gradient(160deg, var(--color-ink-mid) 0%, var(--color-ink) 55%, var(--color-ink-deep) 100%);
   }
 
-  .pulp-cover-glow {
+  .bc-cover-glow {
     @apply pointer-events-none absolute rounded-full;
-    background: radial-gradient(circle, rgba(255, 217, 138, 0.38) 0%, rgba(255, 217, 138, 0) 70%);
+    background: radial-gradient(circle, rgba(131,168,202, 0.38) 0%, rgba(131,168,202, 0) 70%);
   }
 
-  .pulp-glow-text {
-    text-shadow: 0 0 26px rgba(255, 217, 138, 0.28);
+  .bc-glow-text {
+    text-shadow: 0 0 26px rgba(131,168,202, 0.28);
   }
 
   /* --- rows and actions ------------------------------------------------- */
 
-  .pulp-row {
-    @apply flex items-center justify-between gap-3 rounded-md border border-muted/55 bg-gradient-to-b from-cream-lift to-cream-shade px-4 py-3.5 transition duration-200;
+  .bc-row {
+    @apply flex items-center justify-between gap-3 rounded-md border border-muted/55 bg-gradient-to-b from-paper-lift to-paper-shade px-4 py-3.5 transition duration-200;
   }
 
-  .pulp-row:hover {
-    @apply -translate-y-0.5 border-gold;
-    box-shadow: 0 8px 22px rgba(32, 24, 16, 0.22), 0 0 0 1px rgba(255, 217, 138, 0.5);
+  .bc-row:hover {
+    @apply -translate-y-0.5 border-cottage;
+    box-shadow: 0 8px 22px rgba(18,38,58, 0.22), 0 0 0 1px rgba(131,168,202, 0.5);
   }
 
-  .pulp-btn {
+  .bc-btn {
     @apply inline-flex items-center justify-center rounded-full px-5 py-3.5 font-mono text-xs font-bold uppercase tracking-[0.16em] transition duration-200;
   }
 
-  .pulp-btn-gold {
-    @apply bg-gradient-to-b from-gold-lift to-gold text-ink;
-    box-shadow: 0 0 22px rgba(255, 217, 138, 0.5);
+  .bc-btn-cottage {
+    @apply bg-gradient-to-b from-cottage-lift to-cottage text-ink;
+    box-shadow: 0 0 22px rgba(131,168,202, 0.5);
   }
 
-  .pulp-btn-gold:hover:not(:disabled) {
+  .bc-btn-cottage:hover:not(:disabled) {
     @apply -translate-y-0.5;
-    box-shadow: 0 0 30px rgba(255, 217, 138, 0.75);
+    box-shadow: 0 0 30px rgba(131,168,202, 0.75);
   }
 
-  .pulp-btn-ink {
-    @apply bg-ink text-gold;
-    box-shadow: 0 0 18px rgba(255, 217, 138, 0.25);
+  .bc-btn-ink {
+    @apply bg-ink text-cottage;
+    box-shadow: 0 0 18px rgba(131,168,202, 0.25);
   }
 
-  .pulp-btn-ink:hover:not(:disabled) {
+  .bc-btn-ink:hover:not(:disabled) {
     @apply bg-ink-deep;
   }
 
-  .pulp-btn-outline {
+  .bc-btn-outline {
     @apply border border-ink/50 text-ink;
   }
 
-  .pulp-btn-outline:hover:not(:disabled) {
-    @apply bg-ink text-cream;
+  .bc-btn-outline:hover:not(:disabled) {
+    @apply bg-ink text-paper;
   }
 
-  .pulp-btn:disabled {
+  .bc-btn:disabled {
     @apply translate-y-0 opacity-45;
     box-shadow: none;
   }
 
-  /* a text link that reads as ink underscored in gold */
-  .pulp-link {
-    @apply border-b border-gold/60 pb-0.5 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors duration-200;
+  /* a text link that reads as ink underscored in cottage */
+  .bc-link {
+    @apply border-b border-cottage/60 pb-0.5 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors duration-200;
   }
 
-  .pulp-link:hover {
-    @apply border-gold text-muted-deep;
+  /* header navigation: cottage blue on navy, paper on hover (never dark-on-dark) */
+  .bc-nav-link {
+    @apply border-b border-cottage/60 pb-0.5 font-mono text-[11px] uppercase tracking-[0.14em] text-cottage transition-colors duration-200;
+  }
+
+  .bc-nav-link:hover {
+    @apply border-paper text-paper;
+  }
+
+  .bc-link:hover {
+    @apply border-cottage text-muted-deep;
   }
 
   /* --- tags ------------------------------------------------------------- */
 
-  .pulp-tag {
+  .bc-tag {
     @apply rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.1em];
   }
 
-  .pulp-tag-ink {
-    @apply bg-ink text-cream;
+  .bc-tag-ink {
+    @apply bg-ink text-paper;
   }
 
-  .pulp-tag-gold {
-    @apply bg-gold text-ink;
-    box-shadow: 0 0 14px rgba(255, 217, 138, 0.6);
+  .bc-tag-cottage {
+    @apply bg-cottage text-ink;
+    box-shadow: 0 0 14px rgba(131,168,202, 0.6);
   }
 
-  .pulp-tag-outline {
+  .bc-tag-outline {
     @apply border border-muted/70 text-muted;
   }
 
   /* --- fields ----------------------------------------------------------- */
 
-  .pulp-input {
-    @apply w-full rounded-full border border-ink/40 bg-cream-lift px-4 py-3 font-body text-base text-ink placeholder:text-muted;
+  .bc-input {
+    @apply w-full rounded-full border border-ink/40 bg-paper-lift px-4 py-3 font-body text-base text-ink placeholder:text-muted;
   }
 
-  .pulp-select {
-    @apply w-full appearance-none rounded-full border border-cream/40 bg-cream/5 px-4 py-3 font-body text-base text-cream;
+  .bc-select {
+    @apply w-full appearance-none rounded-full border border-paper/40 bg-paper/5 px-4 py-3 font-body text-base text-paper;
   }
 }

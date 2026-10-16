@@ -3,75 +3,9 @@
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import type { Pattern } from "@/lib/types";
+import { buildQuestions } from "@/lib/quizBuilder";
 import { useAuth } from "@/context/AuthContext";
 import { saveProgress } from "@/lib/progress";
-
-interface Question {
-  prompt: string;
-  options: string[];
-  answer: number; // index into options
-}
-
-function shuffle<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const ai = a[i] as T;
-    a[i] = a[j] as T;
-    a[j] = ai;
-  }
-  return a;
-}
-
-function buildQuestions(pattern: Pattern): Question[] {
-  const qs: Question[] = [];
-  const mvs = pattern.movements;
-
-  // "what comes next" questions
-  const starts = shuffle(mvs.slice(0, -1).map((m) => m.number)).slice(0, 5);
-  for (const n of starts) {
-    const correct = mvs.find((m) => m.number === n + 1);
-    const current = mvs.find((m) => m.number === n);
-    if (!correct || !current) continue;
-    const distractors = shuffle(
-      mvs.filter((m) => m.number !== n + 1 && m.number !== n).map((m) => m.text),
-    ).slice(0, 3);
-    const options = shuffle([correct.text, ...distractors]);
-    qs.push({
-      prompt: `Movement ${n} is: “${current.text}”, what comes next?`,
-      options,
-      answer: options.indexOf(correct.text),
-    });
-  }
-
-  // movement count
-  const count = pattern.movementCount;
-  const countOpts = shuffle([count, count + 2, Math.max(4, count - 2), count + 5]).map(String);
-  qs.push({
-    prompt: `How many movements does ${pattern.name} have?`,
-    options: countOpts,
-    answer: countOpts.indexOf(String(count)),
-  });
-
-  // ready stance
-  const stances = [
-    "Parallel Ready Stance",
-    "Closed Ready Stance A",
-    "Closed Ready Stance B",
-    "Closed Ready Stance C",
-    "Warrior Ready Stance A",
-    "Warrior Ready Stance B",
-  ];
-  const wrong = shuffle(stances.filter((s) => s !== pattern.readyStance)).slice(0, 3);
-  const stanceOpts = shuffle([pattern.readyStance, ...wrong]);
-  qs.push({
-    prompt: `What is the ready posture for ${pattern.name}?`,
-    options: stanceOpts,
-    answer: stanceOpts.indexOf(pattern.readyStance),
-  });
-
-  return shuffle(qs);
-}
 
 /** Never notifies: the snapshot flips once, when React swaps server for client. */
 const neverSubscribe = (): (() => void) => () => {};
@@ -127,15 +61,15 @@ export default function Quiz({ pattern, slug }: { pattern: Pattern; slug: string
   }, [done, pct, slug, user]);
 
   if (questions === null) {
-    return <p className="pulp-meta">Building your quiz…</p>;
+    return <p className="bc-meta">Building your quiz…</p>;
   }
 
   if (done) {
     return (
-      <div className="pulp-cover flex flex-col gap-4.5 rounded-lg px-5 py-8 text-center">
+      <div className="bc-cover flex flex-col gap-4.5 rounded-lg px-5 py-8 text-center">
         <p
-          className="font-display text-[64px] font-bold leading-none text-gold"
-          style={{ textShadow: "0 0 32px rgba(255,217,138,0.55)" }}
+          className="font-display text-[64px] font-bold leading-none text-cottage"
+          style={{ textShadow: "0 0 32px rgba(131,168,202,0.55)" }}
         >
           {pct}%
         </p>
@@ -150,13 +84,13 @@ export default function Quiz({ pattern, slug }: { pattern: Pattern; slug: string
               setScore(0);
               setPicked(null);
             }}
-            className="pulp-btn pulp-btn-gold flex-1"
+            className="bc-btn bc-btn-cottage flex-1"
           >
             Try again
           </button>
           <Link
             href={`/patterns/${slug}`}
-            className="pulp-btn flex-1 border border-cream/55 text-cream hover:bg-cream/10"
+            className="bc-btn flex-1 border border-paper/55 text-paper hover:bg-paper/10"
           >
             Back to pattern
           </Link>
@@ -173,13 +107,13 @@ export default function Quiz({ pattern, slug }: { pattern: Pattern; slug: string
   return (
     <div className="flex flex-col gap-5">
       <div className="flex items-center gap-2.5">
-        <span className="pulp-meta whitespace-nowrap">
+        <span className="bc-meta whitespace-nowrap">
           Question {qi + 1} / {questions.length}
         </span>
         <span className="h-1 flex-1 overflow-hidden rounded-full bg-ink/15">
           <span
-            className="block h-full bg-gold transition-[width] duration-300"
-            style={{ width: `${progress}%`, boxShadow: "0 0 12px rgba(255,217,138,0.8)" }}
+            className="block h-full bg-cottage transition-[width] duration-300"
+            style={{ width: `${progress}%`, boxShadow: "0 0 12px rgba(131,168,202,0.8)" }}
           />
         </span>
       </div>
@@ -190,12 +124,12 @@ export default function Quiz({ pattern, slug }: { pattern: Pattern; slug: string
         {q.options.map((opt, i) => {
           const state =
             picked === null
-              ? "border-muted/55 bg-gradient-to-b from-cream-lift to-cream-shade hover:border-gold hover:-translate-y-0.5"
+              ? "border-muted/55 bg-gradient-to-b from-paper-lift to-paper-shade hover:border-cottage hover:-translate-y-0.5"
               : i === q.answer
-                ? "border-gold bg-gradient-to-b from-[#fff3d6] to-[#f7e7c0] shadow-[0_0_22px_rgba(255,217,138,0.55)]"
+                ? "border-cottage bg-gradient-to-b from-cottage-lift to-cottage shadow-[0_0_22px_rgba(131,168,202,0.55)]"
                 : i === picked
                   ? "border-ink bg-ink text-on-ink"
-                  : "border-muted/40 bg-cream-shade opacity-55";
+                  : "border-muted/40 bg-paper-shade opacity-55";
           return (
             <button
               key={i}
@@ -218,7 +152,7 @@ export default function Quiz({ pattern, slug }: { pattern: Pattern; slug: string
             setQi((n) => n + 1);
             setPicked(null);
           }}
-          className="pulp-btn pulp-btn-ink w-full"
+          className="bc-btn bc-btn-ink w-full"
         >
           {qi + 1 === questions.length ? "See score" : "Next question"}
         </button>

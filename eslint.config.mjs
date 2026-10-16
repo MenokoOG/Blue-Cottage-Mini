@@ -12,7 +12,7 @@ import reactHooks from "eslint-plugin-react-hooks";
  * `next build` plugin-detection check finds it.
  */
 export default tseslint.config(
-  { ignores: [".next/**", "out/**", "node_modules/**", "next-env.d.ts"] },
+  { ignores: [".next/**", "out/**", "node_modules/**", "next-env.d.ts", "docs/PULP*/**"] },
 
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -39,6 +39,18 @@ export default tseslint.config(
 
   {
     files: ["tools/**", "*.mjs", "*.config.*"],
+    languageOptions: {
+      // Node 20+ globals used by the build scripts under tools/.
+      globals: {
+        fetch: "readonly",
+        console: "readonly",
+        URL: "readonly",
+        process: "readonly",
+        Buffer: "readonly",
+        setTimeout: "readonly",
+        WebSocket: "readonly",
+      },
+    },
     rules: { "@typescript-eslint/no-require-imports": "off" },
   },
 );

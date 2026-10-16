@@ -12,7 +12,7 @@ service cloud.firestore {
       return request.auth != null && request.auth.uid == uid;
     }
 
-    // The 16 ranks from src/data/syllabus.json, mirrored from src/lib/rank.ts.
+    // The 16 ranks, mirrored from RANKS in src/lib/rank.ts (a test keeps them in step).
     // Rules cannot import JSON, so this list is duplicated on purpose; a test
     // in src/lib/rank.test.ts parses this file and fails if the two drift.
     function isValidRank(rank) {

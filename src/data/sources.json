@@ -1,0 +1,74 @@
+{
+  "sources": [
+    {
+      "id": "wikipedia-teul",
+      "title": "Teul (Wikipedia)",
+      "publisher": "Wikipedia contributors",
+      "url": "https://en.wikipedia.org/wiki/Teul",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "usedFor": "The list of 24 patterns, the historical periods they belong to, the history of how the patterns were created, and General Choi's nine practice points.",
+      "use": "facts"
+    },
+    {
+      "id": "wikipedia-namesakes",
+      "title": "Namesake articles (Wikipedia)",
+      "publisher": "Wikipedia contributors",
+      "url": "https://en.wikipedia.org/wiki/Teul",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "usedFor": "A two-sentence excerpt about the person or idea each pattern is named after. Each excerpt is shortened from the article lead and shown with a link to its article, its edit history and the revision it was taken from. See the list below.",
+      "use": "excerpt"
+    },
+    {
+      "id": "itf-patterns-page",
+      "title": "ITF patterns",
+      "publisher": "itftaekwondo.com",
+      "url": "https://itftaekwondo.com/patterns/",
+      "license": "No licence stated; facts only, paraphrased",
+      "usedFor": "A cross-check of movement counts, the rank each pattern is taught at, and the one-line meaning of each pattern. Facts are not copyrightable; no wording is copied.",
+      "use": "facts"
+    },
+    {
+      "id": "encyclopedia",
+      "title": "Encyclopedia of Taekwon-Do (1999)",
+      "publisher": "General Choi Hong Hi, International Taekwon-Do Federation",
+      "url": "https://en.wikipedia.org/wiki/Teul#References",
+      "license": "Copyright the author; cited, not reproduced",
+      "usedFor": "The canonical authority for the patterns, named by Wikipedia as the reference for how every pattern is performed. Its movement sequences are copyrighted and are not included here.",
+      "use": "reference"
+    },
+    {
+      "id": "youtube-itftuls",
+      "title": "ITFtuls on YouTube",
+      "publisher": "ITFtuls (YouTube channel)",
+      "url": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+      "license": "Copyright the uploader; embedded through YouTube's player, not copied",
+      "usedFor": "One demonstration video for each of the 24 patterns. Videos load only when you press play, through youtube-nocookie.com, and every video was confirmed embeddable through YouTube's oEmbed endpoint.",
+      "use": "embed"
+    },
+    {
+      "id": "titf-registry",
+      "title": "TITF Black Belt Registry: Verify Ranks",
+      "publisher": "Traditional International Taekwon-Do Federation",
+      "url": "https://dafydhaase.wixsite.com/titf/verify-ranks",
+      "license": "Credential reference",
+      "usedFor": "Verifies the instructor credential shown on the About page: Mr. Lawrence Jefferson, USA, 7th Degree, International Master Instructor.",
+      "use": "reference"
+    },
+    {
+      "id": "cottage-blue",
+      "title": "Valspar Cottage Blue (209D)",
+      "publisher": "matchmypaintcolor.com",
+      "url": "https://www.matchmypaintcolor.com/valspar/cottage-blue-209d",
+      "license": "A colour value",
+      "usedFor": "The starting colour of the Blue Cottage theme, #83a8ca. The rest of the palette is derived from it.",
+      "use": "reference"
+    }
+  ],
+  "discrepancies": [
+    "itftaekwondo.com/patterns lists Tong-Il with 42 movements and Choi-Yong with 45. This app uses 56 and 46, the standard ITF counts, as recorded in the TITF handbook this project was first built from.",
+    "That page says there are 24 patterns but names 25, because it lists both Ko-Dang and Juche. This app follows Wikipedia's Teul: 24 current patterns including Juche, with Ko-Dang shown separately as a former pattern.",
+    "Wikipedia gives no per-pattern movement counts or belt grades. Those come from the ITF syllabus and the cross-check above, not from a free-licensed document, so treat them as facts to confirm with your instructor."
+  ]
+}

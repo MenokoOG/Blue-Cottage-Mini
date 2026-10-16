@@ -1,12 +1,17 @@
-# ITF Patterns Trainer
+# Blue Cottage Mini: A Tour of ITF Taekwon-Do
 
-Mobile-first Next.js app for students practicing the Chang-Hon (ITF) tuls,
-all 27 patterns from Saju Jirugi to Tong-Il, with a movement stepper, quiz
-mode, and a RAG study coach powered by OpenAI.
+A mobile-first Next.js app that tours the 24 ITF (Chang-Hon) patterns. A Master
+Instructor leads a swarm of 6 belt agents and 24 pattern agents; each pattern
+has its meaning, namesake, a demonstration video and a quiz, and **every fact
+carries its source and licence**. Directed by Master Lawrence Jefferson, 7th
+Degree, International Master Instructor ([TITF registry](https://dafydhaase.wixsite.com/titf/verify-ranks)).
 
 > **STATUS: PROTOTYPE (declared spike).** Runs locally; not hardened for
 > student handoff. See [CHANGELOG.md](CHANGELOG.md) for what exists and
 > [Known limits](#known-limits) for what does not.
+
+> **Formerly "ITF Patterns Trainer".** The handbook-derived pattern and
+> syllabus data were removed in 0.2.0 and replaced with open, cited sources.
 
 ---
 
@@ -14,7 +19,7 @@ mode, and a RAG study coach powered by OpenAI.
 
 ```bash
 git clone https://github.com/MenokoOG/itf-patterns-trainer.git
-cd itf-patterns-trainer
+cd itf-patterns-trainer   # repository name unchanged
 npm ci
 npm run dev
 ```
@@ -172,39 +177,72 @@ curl -i -X POST http://localhost:3000/api/coach -H "Content-Type: application/js
 ```
 src/
   app/
-    page.tsx                  home, patterns grouped by rank
-    patterns/[slug]/page.tsx  movement stepper + full movement list
-    quiz/[slug]/page.tsx      quiz mode
+    page.tsx                  home: Master Instructor card, patterns by belt
+    patterns/[slug]/page.tsx  one pattern: meaning, video, cited namesake
+    belts/[id]/page.tsx       one belt agent and its patterns
+    agents/page.tsx           the swarm, with a free live route preview
+    quiz/[slug]/page.tsx      quiz built from the cited facts
     progress/page.tsx         student progress dashboard
-    coach/page.tsx            coach chat UI
-    api/coach/route.ts        RAG generation endpoint (server-only)
-  components/                 AuthButton, CoachChat, MovementStepper,
-                              ProgressDashboard, Quiz
-  context/AuthContext.tsx     Firebase auth state + sign-in progress merge
-  data/patterns.json          all 27 patterns, extracted + verified from the PDF
-  data/syllabus.json          the 16 rank syllabi, from the TITF handbooks
+    coach/page.tsx            ask the agents (chat)
+    sources/page.tsx          every source, licence and discrepancy
+    about/page.tsx            instructor credential and how it is made
+    opengraph-image.tsx       link-preview card
+    api/coach/route.ts        routed, grounded generation (server-only)
+  components/                 VideoEmbed, NamesakePanel, RoutePreview, CoachChat,
+                              Quiz, MovementStepper, ProgressDashboard, ...
+  data/
+    teul.json                 the 24 patterns (+ Ko-Dang), generated, cited
+    sources.json              the source register and known discrepancies
+    movements.json            move-by-move text; EMPTY until the instructor supplies it
   lib/
-    patterns.ts               pattern lookup + slugging
-    syllabus.ts               rank syllabus lookup
-    rank.ts                   rank vocabulary + the patterns/syllabus join
-    mergeProgress.ts          pure merge of local into account progress
-    corpus.ts                 what the coach may answer from: one chunk per movement, one per syllabus section
-    retrieval.ts              RAG retrieval, local TF-IDF ranking over those chunks
-    verifyIdToken.ts          Firebase ID token check against Google's public keys (jose); fails closed
-    rateLimit.ts              per-account fixed-window limiter, in memory
-    retry.ts                  bounded retry against a wall-clock deadline
-    coachErrors.ts            maps upstream failures to student-facing messages
-    firebase.ts               env-guarded Firebase init
-    progress.ts               Firestore when signed in, localStorage otherwise
-    types.ts                  domain types
-tools/parse_itf.py            one-off PDF extraction script (not part of the build)
-tools/parse_syllabus.py       rebuilds data/syllabus.json from the handbook PDFs
+    agents/                   registry (31 agents), router, prompt builder
+    belts.ts                  the six belt colour families and their ranks
+    patterns.ts               pattern lookup (teul.json + movements.json)
+    rank.ts                   16-rank vocabulary, shared with firestore.rules
+    corpus.ts                 what the agents may answer from, one source per chunk
+    retrieval.ts              TF-IDF retrieval, optionally scoped to an agent
+    quizBuilder.ts            pure quiz generation
+    ...                       auth, progress, rate limit, retry, error mapping
+tools/build_open_data.mjs     rebuilds teul.json from Wikipedia + YouTube oEmbed
+tools/capture_screenshots.mjs marketing screenshots via Chrome DevTools
+marketing/screenshots/        publish-ready images (see marketing/README.md)
 ```
 
-**Source PDFs are not in this repo.** The handbooks are third-party material, so
-`data/patterns.json` and `data/syllabus.json` ship as extracted data only. To
-regenerate them, put your own copies in `ITIF-Handbooks/` (git-ignored) and run
-`python tools/parse_syllabus.py`. The app does not need the PDFs to build or run.
+### The agent swarm
+
+```
+Master Instructor
+  |- White / Yellow / Green / Blue / Red / Black belt agents   (6)
+  '- one pattern agent per pattern, under its belt             (24)
+```
+
+Agents are data, not processes: each is a scope (which corpus chunks it may
+read) plus a persona. `lib/agents/router.ts` routes a question
+deterministically (a named pattern goes to that pattern's agent, two or more
+make the Master lead and consult each, a belt or rank goes to the belt agent),
+so routing is free and the Agents page previews it live. `/api/coach` then
+makes **one** model call over the union of the convened agents' scopes, so a
+swarm answer costs the same as a single one. Every persona forbids inventing
+movements, and every answer lists the sources of the excerpts it used.
+
+### Where the content comes from
+
+| What | Source | Licence |
+| --- | --- | --- |
+| The 24 patterns, periods, history | [Wikipedia: Teul](https://en.wikipedia.org/wiki/Teul) | CC BY-SA 4.0 |
+| Namesake excerpts | Wikipedia articles, fetched with revision id | CC BY-SA 4.0 |
+| Counts, ranks (cross-checked) | [itftaekwondo.com/patterns](https://itftaekwondo.com/patterns/) | facts only, paraphrased |
+| Videos | [ITFtuls on YouTube](https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA), embedded not copied | uploader's copyright |
+
+The full register is on `/sources`. Regenerate the data with
+`node tools/build_open_data.mjs`; it re-fetches every excerpt and re-verifies
+every video through YouTube's oEmbed endpoint.
+
+**Move-by-move sequences are deliberately not included.** No free-licensed
+source exists, and the published sequences are copyrighted. To add your own,
+put an array of `{ "number": 1, "text": "...", "note": "..." }` under a
+pattern id in `src/data/movements.json`; the stepper, the quiz and the agents
+pick it up with no code change.
 
 **Conventions:** one responsibility per file; strict TypeScript everywhere
 (`strict` plus `noUncheckedIndexedAccess`); every external call has an explicit
@@ -213,9 +251,13 @@ timeout, and the coach's one paid call retries transient failures only inside it
 into the UI.
 
 **RAG design:** retrieval is deterministic and offline (lexical TF-IDF over
-per-movement chunks), so it can be swapped for embeddings later without
+per-pattern chunks), so it can be swapped for embeddings later without
 changing callers. Generation is OpenAI, grounded strictly on retrieved chunks,
-within a 25s total budget (up to 3 attempts), with structured error JSON. The coach needs a signed-in account and allows 20 questions per 5 minutes per account.
+within a 25s total budget (up to 3 attempts), with structured error JSON. The
+coach needs a signed-in account and allows 20 questions per 5 minutes per account.
+
+**Marketing screenshots:** with the app running (`npx next start -p 3100`),
+`node tools/capture_screenshots.mjs` rewrites `marketing/screenshots/`.
 
 ---
 
@@ -273,9 +315,11 @@ Expected when the Firebase vars are absent. Add all of `API_KEY`,
   for this project: `@firebase/util` only acts on the `FIREBASE_WEBAPP_CONFIG`
   env var (unset here), `protobufjs` only emits a version-scheme warning, and
   `@google/genai` is a literal `echo`.
-- Coach answers only from pattern text and the rank syllabus, no diagrams, no video.
+- **No move-by-move text, no rank syllabus.** The agents answer from open facts only: meanings, namesakes, periods, counts and belts. The grading requirements for each rank (stances, techniques, theory) are not in the app.
+- **Counts and belts are cross-checked, not free-licensed.** Public sources disagree in places; see the discrepancies on `/sources`.
+- **Videos are third-party.** They are embedded through YouTube, not hosted, so one can disappear; `tools/build_open_data.mjs` re-verifies them.
 - **The rate limiter lives in process memory.** It resets on cold start and is not shared across serverless instances, so it slows one account and is not a hard cap.
-- Quiz distractors are drawn from the same pattern only.
+- Quiz distractors are drawn from the other patterns and the rank and belt lists.
 - **Rank is self-declared.** A student picks their own rank; nothing verifies
   it against an instructor. `practiced` counts reaching the last movement in
   the stepper, which is not the same as having practised well, and the

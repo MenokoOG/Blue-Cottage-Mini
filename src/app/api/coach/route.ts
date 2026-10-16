@@ -7,14 +7,18 @@ import {
   isRetryable,
   isTimeout,
 } from "@/lib/coachErrors";
-import { retrieve } from "@/lib/retrieval";
+import { buildPrompt } from "@/lib/agents/prompt";
+import { route } from "@/lib/agents/router";
+import { bySlug, slugOf } from "@/lib/patterns";
 import { withRetry } from "@/lib/retry";
 import { bearerFrom, verifyIdToken } from "@/lib/verifyIdToken";
 import { rateLimit } from "@/lib/rateLimit";
 
 /**
- * RAG coach endpoint. Retrieval is local (lexical over pattern data);
- * generation is OpenAI. External call policy: 25s total budget, transient
+ * RAG coach endpoint for the agent swarm. The question is routed to a lead
+ * agent (and any it names are consulted) by a deterministic local router;
+ * retrieval is local and scoped to those agents; generation is one OpenAI
+ * call, so a swarm answer costs the same as a single one. External call policy: 25s total budget, transient
  * upstream failures retried within it, errors returned as structured JSON.
  *
  * Access: sign-in required. The endpoint spends money on every call, so it is
@@ -26,7 +30,10 @@ export const runtime = "nodejs";
 
 interface CoachRequest {
   question: string;
+  /** The pattern page the student asked from: an id or a name. */
   pattern?: string;
+  /** An agent the student chose to ask directly, e.g. "belt-yellow". */
+  agent?: string;
 }
 
 const MAX_QUESTION_LEN = 1000;
@@ -43,6 +50,13 @@ const GENERATION_BUDGET_MS = 25_000;
 const MAX_ATTEMPTS = 3;
 /** Delay before attempt N+1. */
 const BACKOFF_MS = [500, 1500];
+
+/** One entry per distinct source, so an answer cites each link once. */
+function dedupeSources(chunks: readonly { source: { label: string; url: string } }[]) {
+  const seen = new Map<string, { label: string; url: string }>();
+  for (const c of chunks) if (!seen.has(c.source.url)) seen.set(c.source.url, c.source);
+  return [...seen.values()];
+}
 
 export async function POST(req: Request): Promise<NextResponse> {
   // OPENAI_API_KEY is the SDK's own convention; OPEN_AI_KEY is accepted
@@ -82,19 +96,15 @@ export async function POST(req: Request): Promise<NextResponse> {
     );
   }
 
-  const query = body.pattern ? `${body.pattern} ${question}` : question;
-  const chunks = retrieve(query, 8);
-  const context = chunks.map((c) => `[${c.id}] ${c.text}`).join("\n");
-
-  const system =
-    "You are a Taekwon-Do study coach for students learning Chang-Hon (ITF) patterns. " +
-    "The excerpts below come from two sources: pattern movement instructions, and " +
-    "the TITF rank syllabus listing what each gup and dan grade must show. " +
-    "Answer ONLY from the provided excerpts. If they do not contain the answer, say " +
-    "you don't have that in the manual and suggest asking their instructor. Be brief, " +
-    "clear, and encouraging. Never invent movements or grading requirements. " +
-    "Give Korean terms alongside English when the excerpts provide them. " +
-    "This is study help, not a substitute for instruction in the dojang.";
+  // `pattern` is the page the student asked from. Accept an id or a name.
+  const focusId = body.pattern ? slugOf(body.pattern) : undefined;
+  const focus = focusId && bySlug(focusId) ? focusId : undefined;
+  const routed = route(question, focus, typeof body.agent === "string" ? body.agent : undefined);
+  const { instructions: system, input: prompt, chunks } = buildPrompt(
+    routed,
+    question,
+    focus ? bySlug(focus)?.name : undefined,
+  );
 
   // Keep this in step with OPENAI_MODEL wherever the app is deployed. Models
   // get retired, and a name this project cannot reach comes back as a 404,
@@ -105,7 +115,6 @@ export async function POST(req: Request): Promise<NextResponse> {
   // SDK default of 2 in place would multiply out to nine upstream calls and
   // spend the shared budget on backoff we did not choose.
   const openai = new OpenAI({ apiKey, maxRetries: 0 });
-  const prompt = `Excerpts:\n${context || "(no matching excerpts)"}\n\nStudent question: ${question}`;
   const deadline = Date.now() + GENERATION_BUDGET_MS;
 
   try {
@@ -155,7 +164,13 @@ export async function POST(req: Request): Promise<NextResponse> {
       });
       return NextResponse.json({ error: "The coach had no answer. Try again." }, { status: 502 });
     }
-    return NextResponse.json({ answer: text, sources: chunks.map((c) => c.id) });
+    return NextResponse.json({
+      answer: text,
+      agent: { id: routed.lead.id, name: routed.lead.name, kind: routed.lead.kind },
+      consulted: routed.consulted.map((a) => ({ id: a.id, name: a.name, kind: a.kind })),
+      reason: routed.reason,
+      sources: dedupeSources(chunks),
+    });
   } catch (e) {
     // Distinct statuses so the next person reading a log or a network panel
     // can tell an upstream capacity blip from a genuine fault. The blanket 502

@@ -1,9 +1,9 @@
 {
-  "name": "itf-patterns-trainer",
-  "version": "0.1.0",
+  "name": "blue-cottage-mini",
+  "version": "0.2.0",
   "private": true,
   "license": "MIT",
-  "description": "Mobile-first trainer for Chang-Hon ITF tuls with a RAG study coach. PROTOTYPE - not production.",
+  "description": "Blue Cottage Mini: A Tour of ITF Taekwon-Do. The 24 ITF patterns with a Master Instructor, belt and pattern agents, cited open sources and demonstration videos. PROTOTYPE - not production.",
   "engines": {
     "node": ">=20.9.0",
     "npm": ">=10.0.0"

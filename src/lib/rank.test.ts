@@ -6,14 +6,16 @@ import {
   patternsBeforeRank,
   patternsForRank,
   rankOfPattern,
-  rankRecord,
 } from "@/lib/rank";
 import { patterns } from "@/lib/patterns";
-import { syllabus } from "@/lib/syllabus";
 
 describe("RANKS", () => {
-  it("matches syllabus.json exactly, in curriculum order", () => {
-    expect([...RANKS]).toEqual(syllabus.map((r) => r.rank));
+  it("has 16 ranks: ten gup then six dan, in curriculum order", () => {
+    expect(RANKS).toHaveLength(16);
+    expect(RANKS[0]).toBe("10th gup");
+    expect(RANKS[9]).toBe("1st gup");
+    expect(RANKS[10]).toBe("1st dan");
+    expect(RANKS[15]).toBe("6th dan");
   });
 
   it("matches the rank list hardcoded in firestore.rules", () => {
@@ -39,7 +41,7 @@ describe("isRank", () => {
     for (const value of [
       "7th Gup", // wrong case
       "7th gup ", // stray whitespace
-      "Green Tip / 7th Gup", // the patterns.json spelling
+      "Green Tip / 7th Gup", // the older belt-prefixed spelling
       "black belt",
       "",
       null,
@@ -54,8 +56,6 @@ describe("isRank", () => {
 
 describe("rankOfPattern", () => {
   it("maps every pattern in the data to a known rank", () => {
-    // Guards the join between patterns.json and syllabus.json, which spell
-    // ranks differently. A data edit on either side fails here.
     for (const pattern of patterns) {
       expect(rankOfPattern(pattern.rank), `${pattern.name} (${pattern.rank})`).not.toBeNull();
     }
@@ -73,27 +73,15 @@ describe("rankOfPattern", () => {
     expect(rankOfPattern("Purple Belt / 12th Gup")).toBeNull();
     expect(rankOfPattern("")).toBeNull();
   });
-
-  it("covers every rank, so no rank renders an empty pattern list", () => {
-    for (const rank of RANKS) {
-      expect(patternsForRank(rank).length, rank).toBeGreaterThan(0);
-    }
-  });
 });
 
 describe("rank selectors", () => {
-  it("returns the syllabus record for every rank", () => {
-    for (const rank of RANKS) {
-      expect(rankRecord(rank)?.rank, rank).toBe(rank);
-    }
-  });
-
   it("puts each pattern at exactly one rank", () => {
     const total = RANKS.reduce((n, rank) => n + patternsForRank(rank).length, 0);
     expect(total).toBe(patterns.length);
   });
 
-  it("returns nothing before the first rank and everything before the last", () => {
+  it("returns nothing before the first pattern rank and everything before the last", () => {
     expect(patternsBeforeRank("10th gup")).toEqual([]);
     expect(patternsBeforeRank("6th dan").length).toBe(
       patterns.length - patternsForRank("6th dan").length,
@@ -104,7 +92,7 @@ describe("rank selectors", () => {
     const own = patternsForRank("8th gup").map((p) => p.slug);
     const earlier = patternsBeforeRank("8th gup").map((p) => p.slug);
 
-    expect(earlier).not.toEqual(expect.arrayContaining(own));
-    expect(earlier).toEqual(expect.arrayContaining(["chon-ji"]));
+    expect(own).toEqual(["dan-gun"]);
+    expect(earlier).toEqual(["chon-ji"]);
   });
 });

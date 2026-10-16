@@ -1,14 +1,12 @@
-import { syllabus } from "@/lib/syllabus";
 import { summaries } from "@/lib/patterns";
-import type { PatternSummary, SyllabusRank } from "@/lib/types";
+import type { PatternSummary } from "@/lib/types";
 
 /**
- * A student's rank, plus the join between two data files that spell ranks
- * differently.
+ * A student's rank, and the join from a rank to the patterns introduced there.
  *
- * `syllabus.json` names a rank "9th gup". `patterns.json` labels the same rank
- * "Yellow Tip / 9th Gup". Everything here joins on the syllabus spelling, which
- * is also what `users/{uid}.rank` stores and what firestore.rules validates.
+ * Ranks are spelled "9th gup" or "3rd dan" everywhere: in `teul.json`, in
+ * `users/{uid}.rank`, and in firestore.rules, which validates against this
+ * list.
  *
  * Rank is set by the student, never inferred from progress: practising Do-San
  * does not make someone 7th gup, an examiner does.
@@ -17,11 +15,10 @@ import type { PatternSummary, SyllabusRank } from "@/lib/types";
 /**
  * The 16 ranks, in curriculum order.
  *
- * Written out rather than derived from syllabus.json so the values are literal
- * types, and because firestore.rules needs the same list and cannot import
- * JSON. Both copies are pinned by tests in rank.test.ts -- if a rank is ever
- * renamed in the handbook data, those fail rather than the app silently
- * rejecting a valid rank.
+ * Written out rather than derived from data so the values are literal types,
+ * and because firestore.rules needs the same list and cannot import JSON.
+ * Both copies are pinned by tests in rank.test.ts -- if a rank is ever
+ * renamed, those fail rather than the app silently rejecting a valid rank.
  */
 export const RANKS = [
   "10th gup",
@@ -50,8 +47,8 @@ export function isRank(value: unknown): value is RankId {
 }
 
 /**
- * Normalises a `Pattern.rank` label to its syllabus rank:
- * "Yellow Tip / 9th Gup" -> "9th gup", "1st Dan" -> "1st dan".
+ * Normalises a rank label to its rank id: "Yellow Tip / 9th Gup" -> "9th gup",
+ * "1st Dan" -> "1st dan". Tolerates the older belt-prefixed spelling.
  *
  * Returns null rather than guessing, so a future data edit surfaces as a
  * missing pattern instead of a wrong one.
@@ -64,10 +61,6 @@ export function rankOfPattern(patternRank: string): RankId | null {
 /** Curriculum position; higher means more senior. */
 export function rankIndex(rank: RankId): number {
   return RANKS.indexOf(rank);
-}
-
-export function rankRecord(rank: RankId): SyllabusRank | undefined {
-  return syllabus.find((r) => r.rank === rank);
 }
 
 /** Patterns introduced at this rank. */

@@ -8,6 +8,9 @@ import { saveProgress } from "@/lib/progress";
 /**
  * One movement at a time (practice view) or the full numbered list.
  * Counts a run-through when the student reaches the final movement.
+ *
+ * Only rendered when movement text exists (src/data/movements.json); the
+ * pattern page shows an explanatory panel otherwise.
  */
 export default function MovementStepper({
   pattern,
@@ -40,8 +43,8 @@ export default function MovementStepper({
   return (
     <section aria-label="Movements" className="flex flex-col gap-3.5">
       <div className="flex items-center justify-between">
-        <h2 className="pulp-label">Movements</h2>
-        <button onClick={() => setListView((v) => !v)} className="pulp-link text-ink">
+        <h2 className="bc-label">Movements</h2>
+        <button onClick={() => setListView((v) => !v)} className="bc-link text-ink">
           {listView ? "Step through" : "See full list"}
         </button>
       </div>
@@ -49,7 +52,7 @@ export default function MovementStepper({
       {listView ? (
         <ol className="flex flex-col gap-3">
           {pattern.movements.map((m) => (
-            <li key={m.number} className="pulp-card">
+            <li key={m.number} className="bc-card">
               <span className="mr-2.5 font-mono text-xs font-bold tracking-[0.1em] text-muted">
                 {String(m.number).padStart(2, "0")}
               </span>
@@ -61,15 +64,9 @@ export default function MovementStepper({
               )}
             </li>
           ))}
-          <li className="pulp-card border-gold bg-none bg-gold/15">
-            <span className="mr-2.5 font-mono text-xs font-bold uppercase tracking-[0.18em] text-muted-deep">
-              End
-            </span>
-            <span className="text-[15px] leading-[1.7]">{pattern.end}</span>
-          </li>
         </ol>
       ) : (
-        <div className="pulp-panel relative overflow-hidden">
+        <div className="bc-panel relative overflow-hidden">
           <span
             className="pointer-events-none absolute -top-4 right-1.5 font-display text-[130px] font-bold leading-none text-ink/[0.07]"
             aria-hidden="true"
@@ -77,7 +74,7 @@ export default function MovementStepper({
             {String(mv?.number ?? 0).padStart(2, "0")}
           </span>
           <div className="relative">
-            <p className="pulp-meta mb-3 tracking-[0.16em]">
+            <p className="bc-meta mb-3 tracking-[0.16em]">
               Movement {mv?.number} of {total}
             </p>
             <p className="min-h-28 text-[17px] leading-[1.7] text-pretty">{mv?.text}</p>
@@ -86,29 +83,18 @@ export default function MovementStepper({
                 {mv.note}
               </p>
             )}
-            {idx === total - 1 && (
-              <p
-                className="mt-4 rounded-md border border-gold bg-gold/20 p-3 text-[15px] leading-[1.65]"
-                style={{ boxShadow: "0 0 22px rgba(255,217,138,0.45)" }}
-              >
-                <span className="mr-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-muted-deep">
-                  End
-                </span>
-                {pattern.end}
-              </p>
-            )}
             <div className="mt-5 flex gap-3">
               <button
                 onClick={() => go(-1)}
                 disabled={idx === 0}
-                className="pulp-btn pulp-btn-outline flex-1"
+                className="bc-btn bc-btn-outline flex-1"
               >
                 Back
               </button>
               <button
                 onClick={() => go(1)}
                 disabled={idx === total - 1}
-                className="pulp-btn pulp-btn-ink flex-1"
+                className="bc-btn bc-btn-ink flex-1"
               >
                 Next
               </button>

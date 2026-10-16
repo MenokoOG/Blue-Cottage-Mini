@@ -9,7 +9,7 @@ export default function AuthButton() {
     return (
       <button
         onClick={() => void signIn()}
-        className="pulp-btn pulp-btn-gold px-4 py-2"
+        className="bc-btn bc-btn-cottage px-4 py-2"
       >
         Sign in
       </button>
@@ -18,7 +18,7 @@ export default function AuthButton() {
   return (
     <button
       onClick={() => void signOutUser()}
-      className="pulp-link text-on-ink"
+      className="bc-link text-on-ink"
       title={user.displayName ?? "Signed in"}
     >
       Sign out

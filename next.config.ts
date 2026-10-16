@@ -9,8 +9,8 @@ import type { NextConfig } from "next";
  *
  * On `script-src 'unsafe-inline'`: the CodeGuard client-side-web-security
  * standard asks for a nonce. A nonce has to be minted per request, which means
- * every page renders dynamically, and 60 of this app's routes are prerendered
- * (all 27 patterns, all 27 quizzes, the home page). Next also emits inline
+ * every page renders dynamically, and most of this app's routes are prerendered
+ * (all 25 pattern pages, all 25 quizzes, the home page). Next also emits inline
  * bootstrap and flight-data scripts on those static pages that a nonce would
  * have to cover. Paying for a nonce means giving up static rendering
  * everywhere, so this deliberately stops short: the directives below still
@@ -48,7 +48,8 @@ const csp = [
   // Tailwind ships a stylesheet, but the pattern/quiz views set a few inline
   // style attributes (gold glows, the quiz progress bar width).
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data:",
+  // i.ytimg.com serves the poster frame shown before a video is played.
+  "img-src 'self' data: https://i.ytimg.com",
   "font-src 'self'",
   // Identity Toolkit and Secure Token for auth, Firestore for progress.
   // Firestore prefers WebChannel over https but can fall back to a websocket,
@@ -56,8 +57,9 @@ const csp = [
   // Realtime Database endpoints the SDK probes even when unused.
   "connect-src 'self' https://*.googleapis.com wss://*.googleapis.com " +
     `https://*.firebaseio.com wss://*.firebaseio.com${devConnect}`,
-  // The sign-in popup's iframe.
-  `frame-src 'self' https://accounts.google.com${firebaseFrame}`,
+  // The sign-in popup's iframe, and the YouTube player a student chooses to
+  // start. The privacy-enhanced domain is used so nothing loads before play.
+  `frame-src 'self' https://accounts.google.com https://www.youtube-nocookie.com${firebaseFrame}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

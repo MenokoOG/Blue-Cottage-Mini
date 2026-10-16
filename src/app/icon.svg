@@ -1,8 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ITF Patterns Trainer">
-  <rect width="64" height="64" rx="12" fill="#201810"/>
-  <!-- Gold rule and initials, matching the PULP header treatment. -->
-  <rect x="14" y="43" width="36" height="3" rx="1.5" fill="#ffd98a"/>
-  <text x="32" y="36" text-anchor="middle" fill="#ffd98a"
-        font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="bold"
-        letter-spacing="1">ITF</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Blue Cottage Mini">
+  <rect width="64" height="64" rx="12" fill="#12263a"/>
+  <!-- Cottage roof line over a Cottage Blue belt knot. -->
+  <path d="M12 30 L32 13 L52 30" fill="none" stroke="#83a8ca" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="17" y="35" width="30" height="7" rx="3.5" fill="#83a8ca"/>
+  <rect x="29" y="33" width="6" height="19" rx="2" fill="#f3f1ea"/>
 </svg>

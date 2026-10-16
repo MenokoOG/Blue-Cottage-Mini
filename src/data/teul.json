@@ -1,0 +1,773 @@
+[
+  {
+    "id": "chon-ji",
+    "order": 1,
+    "name": "Chon-Ji",
+    "status": "current",
+    "rank": "9th gup",
+    "belt": "Yellow",
+    "movementCount": 19,
+    "period": "Ancient Korea",
+    "meaning": "Heaven and Earth: the creation of the world and the beginning of human history, which is why it is the first pattern taught.",
+    "namesake": null,
+    "videos": [
+      {
+        "id": "pRbmNys1tKI",
+        "title": "Chon-Ji Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=pRbmNys1tKI",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "dan-gun",
+    "order": 2,
+    "name": "Dan-Gun",
+    "status": "current",
+    "rank": "8th gup",
+    "belt": "Yellow",
+    "movementCount": 21,
+    "period": "Ancient Korea",
+    "meaning": "Named for Dan-Gun, the legendary founder of Korea.",
+    "namesake": {
+      "title": "Tan'gun",
+      "excerpt": "Tan'gun, also known as Tan'gun Wanggŏm, was the legendary founder and first king of Gojoseon, the first Korean kingdom. He founded the first kingdom around the northern part of the Korean Peninsula.",
+      "url": "https://en.wikipedia.org/wiki/Tan'gun",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Tan'gun&action=history",
+      "revision": "1376068509",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "GoZFgtc9kHQ",
+        "title": "Dan-Gun Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=GoZFgtc9kHQ",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "do-san",
+    "order": 3,
+    "name": "Do-San",
+    "status": "current",
+    "rank": "7th gup",
+    "belt": "Green",
+    "movementCount": 24,
+    "period": "Korea under Japanese rule",
+    "meaning": "Pen name of the patriot Ahn Chang-Ho, who devoted his life to Korean independence and education.",
+    "numberNote": "The 24 movements stand for his life's work.",
+    "namesake": {
+      "title": "Ahn Chang Ho",
+      "excerpt": "Ahn Chang Ho, sometimes An Chang-ho, was a prominent Korean politician, Korean independence activist, and an early leader of the Korean-American immigrant community in the United States. He is also commonly referred to by his art name Dosan.",
+      "url": "https://en.wikipedia.org/wiki/Ahn_Chang_Ho",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Ahn_Chang_Ho&action=history",
+      "revision": "1366482715",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "WqUy-MeFSJs",
+        "title": "Do-San Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=WqUy-MeFSJs",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "won-hyo",
+    "order": 4,
+    "name": "Won-Hyo",
+    "status": "current",
+    "rank": "6th gup",
+    "belt": "Green",
+    "movementCount": 28,
+    "period": "Unified Silla",
+    "meaning": "Named for the monk Won-Hyo, who introduced Buddhism to the Silla dynasty.",
+    "namesake": {
+      "title": "Wonhyo",
+      "excerpt": "Wŏnhyo was one of the most important philosophers and commentators in East Asian Buddhism and the most prolific scholar in Korean Buddhism.",
+      "url": "https://en.wikipedia.org/wiki/Wonhyo",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Wonhyo&action=history",
+      "revision": "1379203418",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "UIldWDhfddM",
+        "title": "Won-Hyo Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=UIldWDhfddM",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "yul-gok",
+    "order": 5,
+    "name": "Yul-Gok",
+    "status": "current",
+    "rank": "5th gup",
+    "belt": "Blue",
+    "movementCount": 38,
+    "period": "Joseon",
+    "meaning": "Pen name of the scholar Yi I, known as the Confucius of Korea.",
+    "numberNote": "The 38 movements refer to the latitude of his birthplace.",
+    "namesake": {
+      "title": "Yi I",
+      "excerpt": "Yi I was a Korean philosopher, writer, and Confucian scholar of the Joseon period. Yi is often referred to by his art name Yulgok.",
+      "url": "https://en.wikipedia.org/wiki/Yi_I",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Yi_I&action=history",
+      "revision": "1367665102",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "IYjaMnn8IsM",
+        "title": "Yul-Gok Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=IYjaMnn8IsM",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "joong-gun",
+    "order": 6,
+    "name": "Joong-Gun",
+    "status": "current",
+    "rank": "4th gup",
+    "belt": "Blue",
+    "movementCount": 32,
+    "period": "Korean Empire",
+    "meaning": "Named for the patriot Ahn Joong-Gun, who killed the Japanese statesman Ito Hirobumi.",
+    "numberNote": "The 32 movements refer to his age when he was executed.",
+    "namesake": {
+      "title": "An Jung-geun",
+      "excerpt": "An Jung-geun, courtesy name An Eungchil, was a Korean independence activist who assassinated Itō Hirobumi, former Prime Minister of Japan and Japanese Resident-General of Korea, in Harbin, China in 1909. An was imprisoned and executed by Japanese imperial forces at Lüshun Russo-Japanese Prison in 1910.",
+      "url": "https://en.wikipedia.org/wiki/An_Jung-geun",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=An_Jung-geun&action=history",
+      "revision": "1379876637",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "79vzu3Hgm3U",
+        "title": "Joong-Gun Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=79vzu3Hgm3U",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "toi-gye",
+    "order": 7,
+    "name": "Toi-Gye",
+    "status": "current",
+    "rank": "3rd gup",
+    "belt": "Red",
+    "movementCount": 37,
+    "period": "Joseon",
+    "meaning": "Pen name of the scholar Yi Hwang, an authority on neo-Confucianism.",
+    "numberNote": "The 37 movements refer to the latitude of his birthplace.",
+    "namesake": {
+      "title": "Yi Hwang",
+      "excerpt": "Yi Hwang was a Korean philosopher, writer, and Confucian scholar of the Joseon period. He is considered the most important philosopher of Korea - he is honored by printing his portrait on the 1000 South Korean won banknote, on the reverse of which one can see an image of his school, Dosan Seowon.",
+      "url": "https://en.wikipedia.org/wiki/Yi_Hwang",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Yi_Hwang&action=history",
+      "revision": "1366480245",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "dXySPEHjwW0",
+        "title": "Toi-Gye Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=dXySPEHjwW0",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "hwa-rang",
+    "order": 8,
+    "name": "Hwa-Rang",
+    "status": "current",
+    "rank": "2nd gup",
+    "belt": "Red",
+    "movementCount": 29,
+    "period": "Silla",
+    "meaning": "Named for the Hwa-Rang, a youth warrior group of the Silla dynasty.",
+    "numberNote": "The 29 movements refer to the 29th Infantry Division.",
+    "namesake": {
+      "title": "Hwarang",
+      "excerpt": "Hwarang were an elite warrior group of male youth in Silla, an ancient kingdom of the Korean Peninsula that originated from the mid 6th century and lasted until the early 10th century. There were educational institutions as well as social clubs where members gathered for all aspects of study, originally for arts and culture as well as religious teachings stemming mainly from Korean Buddhism.",
+      "url": "https://en.wikipedia.org/wiki/Hwarang",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Hwarang&action=history",
+      "revision": "1377564454",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "1oZjONeEBkQ",
+        "title": "Hwa-Rang Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=1oZjONeEBkQ",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "choong-moo",
+    "order": 9,
+    "name": "Choong-Moo",
+    "status": "current",
+    "rank": "1st gup",
+    "belt": "Red",
+    "movementCount": 30,
+    "period": "Joseon",
+    "meaning": "Name given to Admiral Yi Sun-Sin of the Joseon dynasty, credited with an early armoured warship.",
+    "namesake": {
+      "title": "Yi Sun-sin",
+      "excerpt": "Yi Sun-sin was a Korean admiral and military general known for his victories against the Japanese navy during the Imjin War in the Joseon period. Yi's courtesy name was Yŏhae (여해), and he was posthumously honored with the title Lord of Loyal Valor.",
+      "url": "https://en.wikipedia.org/wiki/Yi_Sun-sin",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Yi_Sun-sin&action=history",
+      "revision": "1379811546",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "ivdVFnOXu3A",
+        "title": "Choong-Moo Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=ivdVFnOXu3A",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "kwang-gae",
+    "order": 10,
+    "name": "Kwang-Gae",
+    "status": "current",
+    "rank": "1st dan",
+    "belt": "Black",
+    "movementCount": 39,
+    "period": "Goguryeo",
+    "meaning": "Named for Kwang-Gae-Toh-Wang, the 19th king of Goguryeo, who regained lost territory.",
+    "numberNote": "The 39 movements refer to the first two figures of 391 AD, the year he came to the throne.",
+    "namesake": {
+      "title": "Gwanggaeto the Great",
+      "excerpt": "Gwanggaeto the Great was the nineteenth monarch of Goguryeo. His full posthumous name means \"Entombed in Gukgangsang, Broad Expander of Domain, Peacemaker, Supreme King\", sometimes abbreviated to Hotaewang.",
+      "url": "https://en.wikipedia.org/wiki/Gwanggaeto_the_Great",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Gwanggaeto_the_Great&action=history",
+      "revision": "1380041928",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "9QcmRQWUxao",
+        "title": "Kwang-Gae Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=9QcmRQWUxao",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "po-eun",
+    "order": 11,
+    "name": "Po-Eun",
+    "status": "current",
+    "rank": "1st dan",
+    "belt": "Black",
+    "movementCount": 36,
+    "period": "Goryeo",
+    "meaning": "Pen name of Chong Mong-Chu, a loyal subject of the Goryeo dynasty.",
+    "namesake": {
+      "title": "Chŏng Mongju",
+      "excerpt": "Chŏng Mongju, also known by his art name P'oŭn (포은), was a Korean statesman, diplomat, philosopher, poet, calligrapher and reformist of the Goryeo period. He was a major figure of opposition to the transition from the Goryeo (918–1392) to Joseon (1392–1897) periods.",
+      "url": "https://en.wikipedia.org/wiki/Ch%C5%8Fng_Mongju",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Ch%C5%8Fng_Mongju&action=history",
+      "revision": "1376874065",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "Y0aqGAcY2ac",
+        "title": "Po-Eun Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=Y0aqGAcY2ac",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "ge-baek",
+    "order": 12,
+    "name": "Ge-Baek",
+    "status": "current",
+    "rank": "1st dan",
+    "belt": "Black",
+    "movementCount": 44,
+    "period": "Baekje",
+    "meaning": "Named for Ge-Baek, a general of Baekje known for his strict military discipline.",
+    "namesake": {
+      "title": "Kyebaek",
+      "excerpt": "Kyebaek, was a general in the ancient Korean kingdom of Baekje during the early to mid-7th century. Little else is known of his personal life—including the year and location of his birth.",
+      "url": "https://en.wikipedia.org/wiki/Kyebaek",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Kyebaek&action=history",
+      "revision": "1366485037",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "GLXdxtZ93WI",
+        "title": "Ge-Baek Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=GLXdxtZ93WI",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "eui-am",
+    "order": 13,
+    "name": "Eui-Am",
+    "status": "current",
+    "rank": "2nd dan",
+    "belt": "Black",
+    "movementCount": 45,
+    "period": "Korea under Japanese rule",
+    "meaning": "Pen name of Son Byong-Hi, leader of the Korean independence movement of 1919.",
+    "namesake": {
+      "title": "Son Byong-hi",
+      "excerpt": "Son Byong-hi was a Korean religious leader and independence activist. His religious name was Uiam.",
+      "url": "https://en.wikipedia.org/wiki/Son_Byong-hi",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Son_Byong-hi&action=history",
+      "revision": "1371996518",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "0VsXxqtDfQg",
+        "title": "Eui-Am Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=0VsXxqtDfQg",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "choong-jang",
+    "order": 14,
+    "name": "Choong-Jang",
+    "status": "current",
+    "rank": "2nd dan",
+    "belt": "Black",
+    "movementCount": 52,
+    "period": "Joseon",
+    "meaning": "Pen name of General Kim Duk-Ryang of the early Joseon dynasty.",
+    "namesake": {
+      "title": "Kim Tŏngnyŏng",
+      "excerpt": "Kim Tŏngnyŏng was a Joseon general who notably served during the 1592–1598 Japanese invasions of Korea. His alias was Chungjang.",
+      "url": "https://en.wikipedia.org/wiki/Kim_T%C5%8Fngny%C5%8Fng",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Kim_T%C5%8Fngny%C5%8Fng&action=history",
+      "revision": "1345562143",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "3W25EELkbfQ",
+        "title": "Choong-Jang Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=3W25EELkbfQ",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "juche",
+    "order": 15,
+    "name": "Juche",
+    "status": "current",
+    "rank": "2nd dan",
+    "belt": "Black",
+    "movementCount": 45,
+    "period": "Division of Korea",
+    "meaning": "A philosophical idea that people are masters of their own destiny; in this pattern it is represented by Mount Baekdu.",
+    "namesake": {
+      "title": "Juche",
+      "excerpt": "Juche, officially the Juche idea, is a name of the official ideology of North Korea and its ruling Workers' Party of Korea (WPK). In the narrow sense, it is the philosophical component of the North Korean official ideology, also known as Kimilsungism–Kimjongilism, which emphasizes human independence, creativity, and consciousness as a motive force.",
+      "url": "https://en.wikipedia.org/wiki/Juche",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Juche&action=history",
+      "revision": "1379864210",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "AvggWswVP9c",
+        "title": "Juche Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=AvggWswVP9c",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "sam-il",
+    "order": 16,
+    "name": "Sam-Il",
+    "status": "current",
+    "rank": "3rd dan",
+    "belt": "Black",
+    "movementCount": 33,
+    "period": "Korea under Japanese rule",
+    "meaning": "Marks 1 March 1919, the day of the Korean independence movement.",
+    "numberNote": "The 33 movements stand for the 33 patriots who planned it.",
+    "namesake": {
+      "title": "March First Movement",
+      "excerpt": "The March First Movement was a series of protests against Japanese colonial rule that was held throughout Korea and internationally by the Korean diaspora beginning on March 1, 1919. Protests were largely concentrated in March and April of that year, although related protests continued until 1921.",
+      "url": "https://en.wikipedia.org/wiki/March_First_Movement",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=March_First_Movement&action=history",
+      "revision": "1369271652",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "7KqbZ6G3-3k",
+        "title": "Sam-Il Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=7KqbZ6G3-3k",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "yoo-sin",
+    "order": 17,
+    "name": "Yoo-Sin",
+    "status": "current",
+    "rank": "3rd dan",
+    "belt": "Black",
+    "movementCount": 68,
+    "period": "Silla",
+    "meaning": "Named for General Kim Yoo-Sin, who unified the three kingdoms of Korea under Silla.",
+    "numberNote": "The 68 movements refer to the last two figures of 668 AD, the year of unification.",
+    "namesake": {
+      "title": "Kim Yu-sin",
+      "excerpt": "Kim Yu-sin was a Korean military general and politician in 7th-century Silla. He led the unification of the Korean Peninsula by Silla under the reign of King Muyeol and King Munmu.",
+      "url": "https://en.wikipedia.org/wiki/Kim_Yu-sin",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Kim_Yu-sin&action=history",
+      "revision": "1357613288",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "Hh78kUHoTxA",
+        "title": "Yoo-Sin Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=Hh78kUHoTxA",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "choi-yong",
+    "order": 18,
+    "name": "Choi-Yong",
+    "status": "current",
+    "rank": "3rd dan",
+    "belt": "Black",
+    "movementCount": 46,
+    "period": "Goryeo",
+    "meaning": "Named for General Choi Yong, Commander-in-Chief of Goryeo forces, respected for loyalty and humility.",
+    "namesake": {
+      "title": "Ch'oe Yŏng",
+      "excerpt": "Ch'oe Yŏng, also romanized as Choi Young, was a Korean general born in Hongseong or Cheorwon during the Goryeo period. He became a national hero after he put down Cho Il-sin's Rebellion.",
+      "url": "https://en.wikipedia.org/wiki/Ch'oe_Y%C5%8Fng",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Ch'oe_Y%C5%8Fng&action=history",
+      "revision": "1379815880",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "UGcbCeQyksY",
+        "title": "Choi-Yong Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=UGcbCeQyksY",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "yon-gae",
+    "order": 19,
+    "name": "Yon-Gae",
+    "status": "current",
+    "rank": "4th dan",
+    "belt": "Black",
+    "movementCount": 49,
+    "period": "Goguryeo",
+    "meaning": "Named for Yon Gae Somoon, a general and statesman of Goguryeo.",
+    "numberNote": "The 49 movements refer to the last two figures of 649 AD, when he drove back a Tang invasion.",
+    "namesake": {
+      "title": "Yŏn Kaesomun",
+      "excerpt": "Yŏn Kaesomun was a powerful military dictator in the waning days of the Goguryeo kingdom, one of the Three Kingdoms of ancient Korea. Traditional Korean histories from Joseon painted Yŏn Kaesomun as a despotic leader, whose cruel policies and disobedience to his monarch led to the fall of Goguryeo.",
+      "url": "https://en.wikipedia.org/wiki/Y%C5%8Fn_Kaesomun",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Y%C5%8Fn_Kaesomun&action=history",
+      "revision": "1366249020",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "9WaIlVkCWDM",
+        "title": "Yon-Gae Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=9WaIlVkCWDM",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "ul-ji",
+    "order": 20,
+    "name": "Ul-Ji",
+    "status": "current",
+    "rank": "4th dan",
+    "belt": "Black",
+    "movementCount": 42,
+    "period": "Goguryeo",
+    "meaning": "Named for General Ul-Ji Moon-Dok, who defeated a large Sui invasion force.",
+    "numberNote": "The 42 movements are said to refer to the age of the pattern's author when he created it.",
+    "namesake": {
+      "title": "Ŭlchi Mundŏk",
+      "excerpt": "Ŭlchi Mundŏk was a military leader of early 7th century Goguryeo, one of the Three Kingdoms of Korea, who successfully defended Goguryeo against Sui China. He is famous for his victory at Salsu, and is often numbered among the greatest heroes in the military history of Korea.",
+      "url": "https://en.wikipedia.org/wiki/%C5%AClchi_Mund%C5%8Fk",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=%C5%AClchi_Mund%C5%8Fk&action=history",
+      "revision": "1304951203",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "GKMhqmzG1y8",
+        "title": "Ul-Ji Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=GKMhqmzG1y8",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "moon-moo",
+    "order": 21,
+    "name": "Moon-Moo",
+    "status": "current",
+    "rank": "4th dan",
+    "belt": "Black",
+    "movementCount": 61,
+    "period": "Silla",
+    "meaning": "Honours King Moon-Moo, the 30th king of Silla, who is said to have been buried near the sea.",
+    "numberNote": "The 61 movements refer to the last two figures of 661 AD, the year he came to the throne.",
+    "namesake": {
+      "title": "Munmu of Silla",
+      "excerpt": "Munmu  (626–681), personal name Kim Pŏmmin, was a Korean monarch who served as the 30th king of the Korean kingdom of Silla. He is usually considered to have been the first ruler of the Unified Silla period.",
+      "url": "https://en.wikipedia.org/wiki/Munmu_of_Silla",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Munmu_of_Silla&action=history",
+      "revision": "1377835355",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "nnKNrv_sWRQ",
+        "title": "Moon-Moo Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=nnKNrv_sWRQ",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "so-san",
+    "order": 22,
+    "name": "So-San",
+    "status": "current",
+    "rank": "5th dan",
+    "belt": "Black",
+    "movementCount": 72,
+    "period": "Joseon",
+    "meaning": "Pen name of the monk Choi Hyong-Ung, who organised monk soldiers against the Japanese invasion of 1592.",
+    "numberNote": "The 72 movements refer to his age when he organised them.",
+    "namesake": {
+      "title": "Hyujeong",
+      "excerpt": "Hyujeong, also called Seosan Daesa was a Korean Seon master. As was common for monks in this time, he became an itinerant monk, living in a succession of monasteries.",
+      "url": "https://en.wikipedia.org/wiki/Hyujeong",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Hyujeong&action=history",
+      "revision": "1366480977",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "neev_YAAgDQ",
+        "title": "So-San Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=neev_YAAgDQ",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "se-jong",
+    "order": 23,
+    "name": "Se-Jong",
+    "status": "current",
+    "rank": "5th dan",
+    "belt": "Black",
+    "movementCount": 24,
+    "period": "Joseon",
+    "meaning": "Named for King Sejong, who created the Korean alphabet.",
+    "numberNote": "The 24 movements stand for the 24 letters of the alphabet.",
+    "namesake": {
+      "title": "Sejong the Great",
+      "excerpt": "Sejong, commonly known as Sejong the Great, was the fourth monarch of the Koreanic state Joseon. He ruled from 1418 to his death in 1450.",
+      "url": "https://en.wikipedia.org/wiki/Sejong_the_Great",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Sejong_the_Great&action=history",
+      "revision": "1380207983",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "KbLf1KELSzo",
+        "title": "Se-Jong Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=KbLf1KELSzo",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "tong-il",
+    "order": 24,
+    "name": "Tong-Il",
+    "status": "current",
+    "rank": "6th dan",
+    "belt": "Black",
+    "movementCount": 56,
+    "period": "Division of Korea",
+    "meaning": "Expresses the resolve to see Korea unified again after division.",
+    "namesake": {
+      "title": "Korean reunification",
+      "excerpt": "Korean reunification is the hypothetical unification of North Korea and South Korea into a singular Korean sovereign state. Prior to World War I and Korea under Japanese rule (1910–1945), all of Korea had been unified as a single state for over a millennium, notably under the Goryeo and Joseon dynasties.",
+      "url": "https://en.wikipedia.org/wiki/Korean_reunification",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Korean_reunification&action=history",
+      "revision": "1377466768",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": [
+      {
+        "id": "yNmgJFwstMM",
+        "title": "Tong-Il Tul",
+        "channel": "ITFtuls",
+        "url": "https://www.youtube.com/watch?v=yNmgJFwstMM",
+        "channelUrl": "https://www.youtube.com/channel/UCIK4F11SJr7OTpBeSa1-JHA",
+        "verified": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "id": "ko-dang",
+    "order": 25,
+    "name": "Ko-Dang",
+    "status": "former",
+    "rank": "2nd dan",
+    "belt": "Black",
+    "movementCount": 39,
+    "period": "Korea under Japanese rule",
+    "meaning": "Pen name of the patriot Cho Man-Sik. Removed from the curriculum and replaced by Juche; still practised by some organisations.",
+    "numberNote": "The 39 movements refer to his imprisonments and the latitude of his birthplace.",
+    "namesake": {
+      "title": "Cho Man-sik",
+      "excerpt": "Cho Man-sik, also known by his art name Godang (고당), was a Korean independence activist.",
+      "url": "https://en.wikipedia.org/wiki/Cho_Man-sik",
+      "historyUrl": "https://en.wikipedia.org/w/index.php?title=Cho_Man-sik&action=history",
+      "revision": "1367662083",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "retrieved": "2026-10-16"
+    },
+    "videos": []
+  }
+]

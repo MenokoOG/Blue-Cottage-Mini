@@ -4,6 +4,9 @@ import { CHUNKS, type Chunk } from "@/lib/corpus";
  * Lightweight lexical retrieval over the corpus (RAG retrieval stage).
  * TF-IDF-weighted token overlap; no external calls, deterministic.
  * Prototype note: swap for embedding search later without changing callers.
+ *
+ * Retrieval can be scoped to a set of tags, which is how an agent sees only
+ * its own part of the corpus (see lib/agents).
  */
 
 export type { Chunk };
@@ -28,22 +31,25 @@ const DF: Map<string, number> = (() => {
   return df;
 })();
 
-export function retrieve(query: string, k = 8): Chunk[] {
+/**
+ * @param scope tags the caller may read; a chunk is eligible if it carries at
+ *   least one. Omit to search the whole corpus.
+ */
+export function retrieve(query: string, k = 8, scope?: ReadonlySet<string>): Chunk[] {
   const qTokens = tokenize(query);
   if (qTokens.length === 0) return [];
   const n = CHUNKS.length;
   const lowered = query.toLowerCase();
-  const scored = CHUNKS.map((c) => {
+  const eligible = scope ? CHUNKS.filter((c) => c.tags.some((t) => scope.has(t))) : CHUNKS;
+  const scored = eligible.map((c) => {
     const cTokens = new Set(tokenize(c.text));
     let score = 0;
     for (const t of qTokens) {
       if (cTokens.has(t)) score += Math.log(1 + n / (DF.get(t) ?? 1));
     }
-    // Normalise by chunk length. Syllabus sections are far longer than single
-    // movements, and without this they win on sheer token count: a question
-    // about one rank pulls in unrelated ranks whose sections happen to be long.
+    // Normalise by chunk length so long chunks do not win on token count alone.
     score /= Math.sqrt(cTokens.size || 1);
-    // strong boost when the query names the pattern or rank outright
+    // strong boost when the query names the pattern or belt outright
     if (lowered.includes(c.label.toLowerCase())) score += 6;
     return { c, score };
   });
@@ -52,4 +58,13 @@ export function retrieve(query: string, k = 8): Chunk[] {
     .sort((a, b) => b.score - a.score)
     .slice(0, k)
     .map((s) => s.c);
+}
+
+/**
+ * Chunks to fall back on when scored retrieval finds nothing: a scoped agent
+ * asked something vague ("tell me about this pattern") should still be handed
+ * its own facts rather than an empty prompt.
+ */
+export function baseline(scope: ReadonlySet<string>, k = 4): Chunk[] {
+  return CHUNKS.filter((c) => c.tags.some((t) => scope.has(t))).slice(0, k);
 }

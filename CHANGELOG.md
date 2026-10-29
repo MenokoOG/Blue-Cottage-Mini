@@ -5,6 +5,17 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Semver.
 
 ## [Unreleased]
 
+### Added
+- `docs/ARCHITECTURE.md` (code-matched diagrams), `docs/CASE-STUDY.md` and five
+  decision records in `docs/decisions/`. They state what is built and what is not,
+  including that there is no run-time human sign-off, no audit log and no cost
+  measurement.
+
+### Fixed
+- README: the `OPENAI_MODEL` row in the variables table had a stray `,` in place of
+  its description.
+- README: known limits now list the missing audit log, sign-off and answer checks.
+
 ## [0.2.0]
 
 ### Changed

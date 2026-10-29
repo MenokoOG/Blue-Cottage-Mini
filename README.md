@@ -107,7 +107,7 @@ editing it.
 | Variable | Required | Enables | Notes |
 | --- | --- | --- | --- |
 | `OPENAI_API_KEY` | No | The `/api/coach` RAG coach | Server-side only, never sent to the browser. Without it the coach returns HTTP 503. `OPEN_AI_KEY` is accepted as an alias, that is the name the Netlify environment uses. |
-| `OPENAI_MODEL` | No |, | Defaults to `gpt-5-mini`. |
+| `OPENAI_MODEL` | No | Which model answers | Defaults to `gpt-5-mini`. Keep it in step with the deployed environment. |
 | `NEXT_PUBLIC_FIREBASE_API_KEY` | No | Google sign-in + cloud progress | Client-side. `NEXT_PUBLIC_*` values are embedded in the browser bundle, expected for Firebase web config. |
 | `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` | No | Google sign-in + cloud progress | |
 | `NEXT_PUBLIC_FIREBASE_PROJECT_ID` | No | Google sign-in + cloud progress | |
@@ -208,6 +208,12 @@ tools/capture_screenshots.mjs marketing screenshots via Chrome DevTools
 marketing/screenshots/        publish-ready images (see marketing/README.md)
 ```
 
+### Design docs
+
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): the code as it is, with diagrams.
+- [docs/CASE-STUDY.md](docs/CASE-STUDY.md): problem, design, what failed, what changed, evidence.
+- [docs/decisions/](docs/decisions/): five decision records (routing, provenance, sign-off and audit, model and hosting, cost).
+
 ### The agent swarm
 
 ```
@@ -297,6 +303,15 @@ Expected when the Firebase vars are absent. Add all of `API_KEY`,
 ## Known limits
 
 - **Prototype, not production.** No service worker / offline support.
+- **No run-time human sign-off and no audit log.** The only human gate is the
+  empty `movements.json` slot. A successful coach call leaves no record of who
+  asked, which agent answered or which sources it used, and token usage is not
+  stored, so there is no cost figure. See
+  [ADR 0003](docs/decisions/0003-human-sign-off-and-audit.md) and
+  [ADR 0005](docs/decisions/0005-cost-controls.md).
+- **No answer checks.** There are no guardrails, no prompt-injection defence and
+  no evaluation of answers. The agents route and retrieve; they do not call tools
+  or each other.
 - **Partial test coverage.** Vitest covers the pure logic, progress merging,
   the rank join, the rank vocabulary shared with `firestore.rules`, and
   `npm run test:rules` executes the rules themselves against the Firestore
